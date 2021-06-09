@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress ALL -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        android:summary="@string/corepatch"
+        app:iconSpaceReserved="false" />
+    <PreferenceCategory
+        android:title="@string/settings"
+        app:iconSpaceReserved="false">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="downgrade"
+            android:summary="@string/downgr_summary"
+            android:title="@string/downgr"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/link"
+        app:iconSpaceReserved="false">
+        <Preference
+            android:summary="@string/blog_link"
+            android:title="@string/blog"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/blog_link" />
+        </Preference>
+        <Preference
+
+            android:summary="@string/weibo_link"
+            android:title="@string/weibo"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/weibo_link" />
+        </Preference>
+
+    </PreferenceCategory>
+</PreferenceScreen>

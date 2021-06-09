@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mi Water</string>
+    <string name="module_description">Android 10–11 core patch</string>
+    <string name="corepatch">This version is for miui 12.5 only.\nPlease use the latest version of the LSPosed.</string>
+    <string name="downgr">Allow downgrade</string>
+    <string name="downgr_summary">Allow downgrade applications.</string>
+    <string name="link"><b>Contact information</b></string>
+    <string name="blog">Blog</string>
+    <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>
+    <string name="weibo">Weibo</string>
+    <string name="weibo_link" translatable="false">http://weibo.com/codestory</string>
+    <string name="settings">Settings</string>
+    <string name="ignore">Ignore</string>
+    <string name="not_supported">It seems that you are using an out dated version of LSPosed or LSPosed is not activated, please update LSPosed or try again after activated.</string>
+</resources>

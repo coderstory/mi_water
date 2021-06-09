@@ -1,0 +1,2 @@
+rootProject.name = "淘米水"
+include ':app'

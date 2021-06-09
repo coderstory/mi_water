@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">淘米水</string>
+    <string name="module_description">MIUI广告救星</string>
+    <string name="corepatch">本插件兼容MIUI 12.5\n请安装最新版本的 LSPosed 框架</string>
+    <string name="downgr">主题美化</string>
+    <string name="downgr_summary">清楚主题美化App中的广告</string>
+    <string name="link">联系方式</string>
+    <string name="blog">博客主页</string>
+    <string name="weibo">微博主页</string>
+    <string name="settings">设置</string>
+    <string name="ignore">忽略</string>
+    <string name="not_supported">您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。</string>
+</resources>

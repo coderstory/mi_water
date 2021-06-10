@@ -2,5 +2,6 @@
 <resources>
     <string-array name="scope">
         <item>com.android.thememanager</item>
+        <item>com.miui.packageinstaller</item>
     </string-array>
 </resources>

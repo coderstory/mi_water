@@ -2,8 +2,10 @@
     <string name="app_name">Mi Water</string>
     <string name="module_description">Android 10–11 core patch</string>
     <string name="corepatch">This version is for miui 12.5 only.\nPlease use the latest version of the LSPosed.</string>
-    <string name="downgr">Allow downgrade</string>
-    <string name="downgr_summary">Allow downgrade applications.</string>
+    <string name="removeThemeAd">MIUI Theme</string>
+    <string name="removeThemeAd_summary">Remove Ad from Theme.</string>
+    <string name="removeInstallerAd">Package Installer</string>
+    <string name="removeInstallerAd_summary">Remove Ad from Package Installer.</string>
     <string name="link"><b>Contact information</b></string>
     <string name="blog">Blog</string>
     <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>

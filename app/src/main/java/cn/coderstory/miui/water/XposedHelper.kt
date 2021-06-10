@@ -14,7 +14,7 @@ open class XposedHelper {
         try {
             XposedBridge.hookAllMethods(packageManagerServiceUtils, verifySignatures, methodHook)
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+             XposedBridge.log(e)
         }
     }
 
@@ -30,7 +30,7 @@ open class XposedHelper {
                     XposedHelpers.findAndHookMethod(p1, lpparam, p2, *parameterTypesAndCallback)
                 }
             } catch (e: Throwable) {
-                if (BuildConfig.DEBUG) XposedBridge.log(e)
+                 XposedBridge.log(e)
             }
         }
 
@@ -44,15 +44,15 @@ open class XposedHelper {
                 val packageParser = findClass(p1, lpparam)
                 XposedBridge.hookAllMethods(packageParser, methodName, parameterTypesAndCallback)
             } catch (e: Throwable) {
-                if (BuildConfig.DEBUG) XposedBridge.log(e)
+                 XposedBridge.log(e)
             }
         }
 
         fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
             try {
-                return Class.forName(className, false, classLoader)
+                return XposedHelpers.findClass(className,classLoader)
             } catch (e: Throwable) {
-                if (BuildConfig.DEBUG) XposedBridge.log(e)
+                 XposedBridge.log(e)
             }
             return null
         }
@@ -62,7 +62,7 @@ open class XposedHelper {
                 val packageParser = findClass(p1, null)
                 hookAllConstructors(packageParser, parameterTypesAndCallback)
             } catch (e: Throwable) {
-                if (BuildConfig.DEBUG) XposedBridge.log(e)
+                 XposedBridge.log(e)
             }
         }
 
@@ -73,7 +73,7 @@ open class XposedHelper {
             return try {
                 XposedBridge.hookAllConstructors(hookClass, callback)
             } catch (e: Throwable) {
-                if (BuildConfig.DEBUG) XposedBridge.log(e)
+                 XposedBridge.log(e)
                 null
             }
         }

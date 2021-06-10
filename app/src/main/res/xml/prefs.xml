@@ -9,9 +9,15 @@
         app:iconSpaceReserved="false">
         <SwitchPreference
             android:defaultValue="true"
-            android:key="downgrade"
-            android:summary="@string/downgr_summary"
-            android:title="@string/downgr"
+            android:key="removeThemeAd"
+            android:summary="@string/removeThemeAd_summary"
+            android:title="@string/removeThemeAd"
+            app:iconSpaceReserved="false" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="removeInstallerAd"
+            android:summary="@string/removeInstallerAd_summary"
+            android:title="@string/removeInstallerAd"
             app:iconSpaceReserved="false" />
     </PreferenceCategory>
 

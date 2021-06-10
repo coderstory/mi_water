@@ -6,6 +6,8 @@
     <string name="removeInstallerAd_summary">移除应用安装界面的广告和去除应用商店相关按钮.</string>
     <string name="removeThemeAd">主题美化</string>
     <string name="removeThemeAd_summary">清除主题美化App中的广告</string>
+    <string name="removeInstallerLimit">安装限制</string>
+    <string name="removeInstallerLimit_summary">移除一些应用安装限制，比如系统app无法直接安装，被标记为危险的应用无法安装等</string>
     <string name="link">联系方式</string>
     <string name="blog">博客主页</string>
     <string name="weibo">微博主页</string>

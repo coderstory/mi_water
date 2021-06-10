@@ -6,6 +6,8 @@
     <string name="removeThemeAd_summary">Remove Ad from Theme.</string>
     <string name="removeInstallerAd">Package Installer</string>
     <string name="removeInstallerAd_summary">Remove Ad from Package Installer.</string>
+    <string name="removeInstallerLimit">install limit</string>
+    <string name="removeInstallerLimit_summary">remove some limits on install apk</string>
     <string name="link"><b>Contact information</b></string>
     <string name="blog">Blog</string>
     <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>

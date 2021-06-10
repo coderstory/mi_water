@@ -41,6 +41,33 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     })
             }
 
+            if (prefs.getBoolean("removeInstallerLimit", true)) {
+                findAndHookMethod(
+                    "android.net.Uri",
+                    lpparam.classLoader,
+                    "parse", String::class.java,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            if (param.args[0].toString().contains("com.miui.securitycenter")) {
+                                param.args[0] = "ddddd"
+                            }
+                        }
+                    })
+
+                // if(arg5 == 33 || arg5 == 34) {
+                findAndHookMethod(
+                    "com.miui.packageInstaller.d.m",
+                    lpparam.classLoader,
+                    "a", Int::class.java,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            val it: Int = param.args[0] as Int;
+                            if (it == 44) {
+                                param.args[0] = 33
+                            }
+                        }
+                    })
+            }
         }
     }
 }

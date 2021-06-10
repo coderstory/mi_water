@@ -19,6 +19,12 @@
             android:summary="@string/removeInstallerAd_summary"
             android:title="@string/removeInstallerAd"
             app:iconSpaceReserved="false" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="removeInstallerLimit"
+            android:summary="@string/removeInstallerLimit_summary"
+            android:title="@string/removeInstallerLimit"
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

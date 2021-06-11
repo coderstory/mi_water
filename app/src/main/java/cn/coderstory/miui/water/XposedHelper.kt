@@ -48,7 +48,7 @@ open class XposedHelper {
             }
         }
 
-        fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
+        private fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
             try {
                 return XposedHelpers.findClass(className,classLoader)
             } catch (e: Throwable) {
@@ -57,9 +57,9 @@ open class XposedHelper {
             return null
         }
 
-        fun hookAllConstructors(p1: String?, parameterTypesAndCallback: XC_MethodHook) {
+        fun hookAllConstructors(p1: String?, classLoader: ClassLoader?,parameterTypesAndCallback: XC_MethodHook) {
             try {
-                val packageParser = findClass(p1, null)
+                val packageParser = findClass(p1, classLoader)
                 hookAllConstructors(packageParser, parameterTypesAndCallback)
             } catch (e: Throwable) {
                  XposedBridge.log(e)

@@ -55,6 +55,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     })
 
                 // if(arg5 == 33 || arg5 == 34) {
+                // 无法直接安装系统app
                 findAndHookMethod(
                     "com.miui.packageInstaller.d.m",
                     lpparam.classLoader,
@@ -68,29 +69,21 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                         }
                     })
             }
-        } else if(lpparam.packageName.equals("com.miui.systemAdSolution")){
-            hookAllConstructors("com.miui.systemAdSolution.splashscreen.SplashScreenService",object :XC_MethodReplacement(){
-                override fun replaceHookedMethod(param: MethodHookParam?): Any? {
-                    return null;
-                }
-            })
-            hookAllConstructors("com.miui.systemAdSolution.splashscreen.SplashScreenServiceV2",object :XC_MethodReplacement(){
-                override fun replaceHookedMethod(param: MethodHookParam?): Any? {
-                    return null;
-                }
-            })
-
-            findAndHookMethod(
-                "com.xiaomi.ad.internal.server.cache.b.d",
-                lpparam.classLoader,
-                "a",
-                Context::class.java,
-                object : XC_MethodHook() {
-                    override fun afterHookedMethod(param: MethodHookParam?) {
-                        XposedBridge.log(IllegalAccessError().stackTrace.joinToString { it.toString() })
-                    }
-                }
-            )
+        } else if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
+            XposedBridge.log("我进来了3")
+            listOf(
+                "com.miui.systemAdSolution.splashAd.SystemSplashAdService",
+                "com.miui.systemAdSolution.splashAd.ExternalMediaSplashAdService",
+                "com.miui.systemAdSolution.splashscreen.SplashScreenServiceV2"
+            ).forEach {
+                hookAllConstructors(it,
+                    lpparam.classLoader,
+                    object : XC_MethodReplacement() {
+                        override fun replaceHookedMethod(param: MethodHookParam?): Any? {
+                            return null;
+                        }
+                    })
+            }
         }
     }
 }

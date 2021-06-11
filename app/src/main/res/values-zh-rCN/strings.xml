@@ -8,6 +8,8 @@
     <string name="removeThemeAd_summary">清除主题美化App中的广告</string>
     <string name="removeInstallerLimit">安装限制</string>
     <string name="removeInstallerLimit_summary">移除一些应用安装限制，比如系统app无法直接安装，被标记为危险的应用无法安装等</string>
+    <string name="removeSplashAd">开屏广告</string>
+    <string name="removeSplashAd_summary">去除系统App上的开屏广告</string>
     <string name="link">联系方式</string>
     <string name="blog">博客主页</string>
     <string name="weibo">微博主页</string>

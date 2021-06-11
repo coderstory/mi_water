@@ -70,19 +70,20 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     })
             }
         } else if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
-            XposedBridge.log("我进来了3")
-            listOf(
-                "com.miui.systemAdSolution.splashAd.SystemSplashAdService",
-                "com.miui.systemAdSolution.splashAd.ExternalMediaSplashAdService",
-                "com.miui.systemAdSolution.splashscreen.SplashScreenServiceV2"
-            ).forEach {
-                hookAllConstructors(it,
-                    lpparam.classLoader,
-                    object : XC_MethodReplacement() {
-                        override fun replaceHookedMethod(param: MethodHookParam?): Any? {
-                            return null;
-                        }
-                    })
+            if (prefs.getBoolean("removeSplashAd", true)) {
+                listOf(
+                    "com.miui.systemAdSolution.splashAd.SystemSplashAdService",
+                    "com.miui.systemAdSolution.splashAd.ExternalMediaSplashAdService",
+                    "com.miui.systemAdSolution.splashscreen.SplashScreenServiceV2"
+                ).forEach {
+                    hookAllConstructors(it,
+                        lpparam.classLoader,
+                        object : XC_MethodReplacement() {
+                            override fun replaceHookedMethod(param: MethodHookParam?): Any? {
+                                return null;
+                            }
+                        })
+                }
             }
         }
     }

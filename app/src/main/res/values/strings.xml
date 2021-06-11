@@ -8,6 +8,8 @@
     <string name="removeInstallerAd_summary">Remove Ad from Package Installer.</string>
     <string name="removeInstallerLimit">install limit</string>
     <string name="removeInstallerLimit_summary">remove some limits on install apk</string>
+    <string name="removeSplashAd">remove splash ad</string>
+    <string name="removeSplashAd_summary">remove splash ad with miui app</string>
     <string name="link"><b>Contact information</b></string>
     <string name="blog">Blog</string>
     <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>

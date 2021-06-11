@@ -1,5 +1,6 @@
 package cn.coderstory.miui.water
 
+import android.content.Context
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -40,7 +41,6 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                         }
                     })
             }
-
             if (prefs.getBoolean("removeInstallerLimit", true)) {
                 findAndHookMethod(
                     "android.net.Uri",
@@ -68,6 +68,29 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                         }
                     })
             }
+        } else if(lpparam.packageName.equals("com.miui.systemAdSolution")){
+            hookAllConstructors("com.miui.systemAdSolution.splashscreen.SplashScreenService",object :XC_MethodReplacement(){
+                override fun replaceHookedMethod(param: MethodHookParam?): Any? {
+                    return null;
+                }
+            })
+            hookAllConstructors("com.miui.systemAdSolution.splashscreen.SplashScreenServiceV2",object :XC_MethodReplacement(){
+                override fun replaceHookedMethod(param: MethodHookParam?): Any? {
+                    return null;
+                }
+            })
+
+            findAndHookMethod(
+                "com.xiaomi.ad.internal.server.cache.b.d",
+                lpparam.classLoader,
+                "a",
+                Context::class.java,
+                object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam?) {
+                        XposedBridge.log(IllegalAccessError().stackTrace.joinToString { it.toString() })
+                    }
+                }
+            )
         }
     }
 }

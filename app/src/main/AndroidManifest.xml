@@ -4,11 +4,11 @@
     package="cn.coderstory.miui.water">
 
     <application
-        tools:ignore="MissingApplicationIcon"
         android:allowBackup="false"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="MissingApplicationIcon">
         <activity
             android:name="cn.coderstory.miui.water.SettingsActivity"
             android:exported="true">
@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
         <meta-data
             android:name="xposeddescription"
             android:value="@string/module_description" />

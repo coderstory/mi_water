@@ -1,8 +1,9 @@
 package cn.coderstory.miui.water
 
-import android.content.Context
+import android.widget.TextView
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import kotlin.system.exitProcess
 
 
 class MainHook : XposedHelper(), IXposedHookLoadPackage {
@@ -84,6 +85,68 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                             }
                         })
                 }
+            }
+        } else if (lpparam.packageName.equals("com.android.traceur")) {
+            listOf(
+                "com.android.traceur.TraceService",
+                "com.android.traceur.QsService",
+                "com.android.traceur.MainActivity",
+                "com.android.traceur.StorageProvider"
+            ).forEach {
+                hookAllConstructors(
+                    it,
+                    lpparam.classLoader,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            exitProcess(0)
+                        }
+                    })
+            }
+        } else if (lpparam.packageName.equals("com.miui.analytics")) {
+            listOf(
+                "com.miui.analytics.onetrack.OneTrackService",
+                "com.miui.analytics.onetrack.TrackService",
+                "com.miui.analytics.EventService",
+                "com.miui.analytics.AppenderService",
+                "com.miui.analytics.AnalyticsService",
+                "com.miui.analytics.Analytics",
+                "com.miui.analytics.AnalyticsProvider",
+                "com.miui.analytics.AnalyticsReceiver"
+            ).forEach {
+                hookAllConstructors(
+                    it,
+                    lpparam.classLoader,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            exitProcess(0)
+                        }
+                    })
+            }
+        } else if (lpparam.packageName.equals("com.miui.securitycenter")) {
+            if (prefs.getBoolean("disableWaiting", true)) {
+                findAndHookMethod("android.widget.TextView",
+                    lpparam.classLoader,
+                    "setEnabled",
+                    Boolean::class.java,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            param.args[0] = true
+                        }
+                    })
+                findAndHookMethod("android.widget.TextView",
+                    lpparam.classLoader,
+                    "setText",
+                    CharSequence::class.java,
+                    TextView.BufferType::class.java,
+                    Boolean::class.java,
+                    Int::class.java,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            if (param.args[0].toString().startsWith("确定(")) {
+                                param.args[0] = "确定"
+                            }
+                        }
+                    })
             }
         }
     }

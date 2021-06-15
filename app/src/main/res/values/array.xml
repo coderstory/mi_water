@@ -3,6 +3,9 @@
     <string-array name="scope">
         <item>com.android.thememanager</item>
         <item>com.miui.packageinstaller</item>
+        <item>com.miui.securitycenter</item>
+        <item>com.miui.analytics</item>
+        <item>com.android.traceur</item>
         <item>com.miui.systemAdSolution</item>
     </string-array>
 </resources>

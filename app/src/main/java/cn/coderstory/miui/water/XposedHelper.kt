@@ -48,7 +48,7 @@ open class XposedHelper {
             }
         }
 
-        private fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
+        public fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
             try {
                 return XposedHelpers.findClass(className,classLoader)
             } catch (e: Throwable) {

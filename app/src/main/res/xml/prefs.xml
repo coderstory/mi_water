@@ -31,6 +31,13 @@
             android:summary="@string/removeSplashAd_summary"
             android:title="@string/removeSplashAd"
             app:iconSpaceReserved="false" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="disableWaiting"
+            android:summary="@string/disableWaiting_summary"
+            android:title="@string/disableWaiting"
+            app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

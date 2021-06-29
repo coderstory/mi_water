@@ -142,7 +142,9 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     Int::class.java,
                     object : XC_MethodHook() {
                         override fun beforeHookedMethod(param: MethodHookParam) {
-                            if (param.args[0].toString().startsWith("确定(")) {
+                            if (param.args.isNotEmpty() && param.args[0]?.toString()
+                                    ?.startsWith("确定(") == true
+                            ) {
                                 param.args[0] = "确定"
                             }
                         }

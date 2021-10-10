@@ -21,6 +21,12 @@
             app:iconSpaceReserved="false" />
         <SwitchPreference
             android:defaultValue="true"
+            android:key="removeInstallerAuth"
+            android:summary="@string/removeInstallerAuth_summary"
+            android:title="@string/removeInstallerAuth"
+            app:iconSpaceReserved="false" />
+        <SwitchPreference
+            android:defaultValue="true"
             android:key="removeInstallerLimit"
             android:summary="@string/removeInstallerLimit_summary"
             android:title="@string/removeInstallerLimit"

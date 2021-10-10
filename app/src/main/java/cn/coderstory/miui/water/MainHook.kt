@@ -3,6 +3,7 @@ package cn.coderstory.miui.water
 import android.widget.TextView
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import java.net.URL
 import kotlin.system.exitProcess
 
 
@@ -42,6 +43,22 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                         }
                     })
             }
+            if (prefs.getBoolean("removeInstallerAuth", true)) {
+                findAndHookMethod(
+                    "java.net.URL",
+                    lpparam.classLoader,
+                    "openConnection",
+                    object : XC_MethodHook() {
+                        override fun afterHookedMethod(param: MethodHookParam) {
+                            var obj: URL = param.thisObject as URL
+                            XposedBridge.log("current host is ${obj.host}")
+                            if (obj.host.equals("api-installer.pt.xiaomi.com") || obj.host.equals("preview-api.installer.xiaomi.com")) {
+                                XposedHelpers.setObjectField(obj, "host", "www.baidu.com");
+                            }
+                        }
+                    })
+            }
+
             if (prefs.getBoolean("removeInstallerLimit", true)) {
                 findAndHookMethod(
                     "android.net.Uri",

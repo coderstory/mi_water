@@ -4,6 +4,8 @@
     <string name="corepatch">This version is for miui 12.5 only.\nPlease use the latest version of the LSPosed.</string>
     <string name="removeThemeAd">MIUI Theme</string>
     <string name="removeThemeAd_summary">Remove Ad from Theme.</string>
+    <string name="removeInstallerAuth">disable verify account</string>
+    <string name="removeInstallerAuth_summary">disable verify account when install app which not exist on miui app store.</string>
     <string name="removeInstallerAd">Package Installer</string>
     <string name="removeInstallerAd_summary">Remove Ad from Package Installer.</string>
     <string name="removeInstallerLimit">install limit</string>

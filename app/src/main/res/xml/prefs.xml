@@ -58,13 +58,9 @@
                 android:data="@string/blog_link" />
         </Preference>
         <Preference
-
             android:summary="@string/weibo_link"
             android:title="@string/weibo"
             app:iconSpaceReserved="false">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/weibo_link" />
         </Preference>
 
     </PreferenceCategory>

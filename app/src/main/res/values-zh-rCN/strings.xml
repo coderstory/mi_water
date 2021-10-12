@@ -11,7 +11,7 @@
     <string name="removeInstallerLimit">安装限制</string>
     <string name="removeInstallerLimit_summary">移除一些应用安装限制，比如系统app无法直接安装，被标记为危险的应用无法安装等</string>
     <string name="removeSplashAd">开屏广告</string>
-    <string name="removeSplashAd_summary">去除系统App上的开屏广告</string>
+    <string name="removeSplashAd_summary">去除系统App上的开屏广告, 需root权限</string>
     <string name="disableWaiting">去除5s/10s限制</string>
     <string name="disableWaiting_summary">去掉开启无障碍等功能必须等待10秒的危险提示</string>
     <string name="link">联系方式</string>

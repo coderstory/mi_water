@@ -15,10 +15,10 @@
     <string name="disableWaiting">remove limit for enable some futures in miui</string>
     <string name="disableWaiting_summary">Removed the restriction of having to wait 10 seconds before the function can be turned on</string>
     <string name="link"><b>Contact information</b></string>
-    <string name="blog">Blog</string>
+    <string name="blog">Connect</string>
+    <string name="weibo">QQ Group</string>
+    <string name="weibo_link" translatable="false">260345842</string>
     <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>
-    <string name="weibo">Weibo</string>
-    <string name="weibo_link" translatable="false">http://weibo.com/codestory</string>
     <string name="settings">Settings</string>
     <string name="ignore">Ignore</string>
     <string name="not_supported">It seems that you are using an out dated version of LSPosed or LSPosed is not activated, please update LSPosed or try again after activated.</string>

@@ -27,7 +27,10 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                 )
             }
 
-        } else if (lpparam.packageName.equals("com.miui.packageinstaller")) {
+        }
+
+
+        if (lpparam.packageName.equals("com.miui.packageinstaller")) {
             if (prefs.getBoolean("removeInstallerAd", true)) {
                 XposedHelpers.findAndHookConstructor(
                     "com.miui.packageInstaller.model.MarketControlRules",
@@ -87,59 +90,26 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                         }
                     })
             }
-        } else if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
+        }
+
+
+        if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
             if (prefs.getBoolean("removeSplashAd", true)) {
-                listOf(
-                    "com.miui.systemAdSolution.splashAd.SystemSplashAdService",
-                    "com.miui.systemAdSolution.splashAd.ExternalMediaSplashAdService",
-                    "com.miui.systemAdSolution.splashscreen.SplashScreenServiceV2"
-                ).forEach {
-                    hookAllConstructors(it,
-                        lpparam.classLoader,
-                        object : XC_MethodReplacement() {
-                            override fun replaceHookedMethod(param: MethodHookParam?): Any? {
-                                return null;
-                            }
-                        })
-                }
-            }
-        } else if (lpparam.packageName.equals("com.android.traceur")) {
-            listOf(
-                "com.android.traceur.TraceService",
-                "com.android.traceur.QsService",
-                "com.android.traceur.MainActivity",
-                "com.android.traceur.StorageProvider"
-            ).forEach {
-                hookAllConstructors(
-                    it,
+
+                findAndHookMethod("com.xiaomi.ad.entity.cloudControl.cn.CNDeskFolderControlInfo",
                     lpparam.classLoader,
-                    object : XC_MethodHook() {
-                        override fun beforeHookedMethod(param: MethodHookParam) {
-                            exitProcess(0)
-                        }
-                    })
-            }
-        } else if (lpparam.packageName.equals("com.miui.analytics")) {
-            listOf(
-                "com.miui.analytics.onetrack.OneTrackService",
-                "com.miui.analytics.onetrack.TrackService",
-                "com.miui.analytics.EventService",
-                "com.miui.analytics.AppenderService",
-                "com.miui.analytics.AnalyticsService",
-                "com.miui.analytics.Analytics",
-                "com.miui.analytics.AnalyticsProvider",
-                "com.miui.analytics.AnalyticsReceiver"
-            ).forEach {
-                hookAllConstructors(
-                    it,
+                    "isCloseAd",
+                    XC_MethodReplacement.returnConstant(true))
+
+                findAndHookMethod("com.xiaomi.ad.common.pojo.AdType",
                     lpparam.classLoader,
-                    object : XC_MethodHook() {
-                        override fun beforeHookedMethod(param: MethodHookParam) {
-                            exitProcess(0)
-                        }
-                    })
+                    "valueOf",
+                    Int::class.java,
+                    XC_MethodReplacement.returnConstant(0))
             }
-        } else if (lpparam.packageName.equals("com.miui.securitycenter")) {
+        }
+
+        if (lpparam.packageName.equals("com.miui.securitycenter")) {
             if (prefs.getBoolean("disableWaiting", true)) {
                 findAndHookMethod("android.widget.TextView",
                     lpparam.classLoader,

@@ -1,10 +1,10 @@
 package cn.coderstory.miui.water
 
+import android.content.pm.ApplicationInfo
 import android.widget.TextView
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.net.URL
-import kotlin.system.exitProcess
 
 
 class MainHook : XposedHelper(), IXposedHookLoadPackage {
@@ -75,18 +75,14 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                         }
                     })
 
-                // if(arg5 == 33 || arg5 == 34) {
-                // 无法直接安装系统app
+                // return (arg2.flags & 1) > 0 || arg2.uid < 10000;
                 findAndHookMethod(
-                    "com.miui.packageInstaller.d.m",
+                    "com.android.packageinstaller.ya",
                     lpparam.classLoader,
-                    "a", Int::class.java,
+                    "a", ApplicationInfo::class.java,
                     object : XC_MethodHook() {
                         override fun beforeHookedMethod(param: MethodHookParam) {
-                            val it: Int = param.args[0] as Int;
-                            if (it == 44) {
-                                param.args[0] = 33
-                            }
+                            param.result = true
                         }
                     })
             }
@@ -96,16 +92,20 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
         if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
             if (prefs.getBoolean("removeSplashAd", true)) {
 
-                findAndHookMethod("com.xiaomi.ad.entity.cloudControl.cn.CNDeskFolderControlInfo",
+                findAndHookMethod(
+                    "com.xiaomi.ad.entity.cloudControl.cn.CNDeskFolderControlInfo",
                     lpparam.classLoader,
                     "isCloseAd",
-                    XC_MethodReplacement.returnConstant(true))
+                    XC_MethodReplacement.returnConstant(true)
+                )
 
-                findAndHookMethod("com.xiaomi.ad.common.pojo.AdType",
+                findAndHookMethod(
+                    "com.xiaomi.ad.common.pojo.AdType",
                     lpparam.classLoader,
                     "valueOf",
                     Int::class.java,
-                    XC_MethodReplacement.returnConstant(0))
+                    XC_MethodReplacement.returnConstant(0)
+                )
             }
         }
 

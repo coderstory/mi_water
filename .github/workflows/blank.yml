@@ -30,6 +30,7 @@ jobs:
           echo 'org.gradle.parallel=true' >> gradle.properties
           echo 'org.gradle.vfs.watch=true' >> gradle.properties
           echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
+          chmod 777 ./gradlew 
           ./gradlew assembleRelease
     - uses: r0adkll/sign-android-release@v1
       name: Sign app APK

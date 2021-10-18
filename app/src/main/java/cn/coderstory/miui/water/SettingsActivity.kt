@@ -39,7 +39,7 @@ class SettingsActivity : FragmentActivity() {
         }
 
         override fun onActivityCreated(savedInstanceState: Bundle?) {
-            val findPreference = findPreference<SwitchPreference>("removeSplashAd")
+            val findPreference = findPreference<SwitchPreference>("removeSplashAd2")
             findPreference?.setOnPreferenceChangeListener { _, newValue ->
                 if (newValue as Boolean) {
                     Shell.su("rm -rf /storage/emulated/0/Android/data/com.miui.systemAdSolution/files/miad")

@@ -90,7 +90,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
 
 
         if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
-            if (prefs.getBoolean("removeSplashAd", true)) {
+            if (prefs.getBoolean("removeSplashAd2", false)) {
 
                 findAndHookMethod(
                     "com.xiaomi.ad.entity.cloudControl.cn.CNDeskFolderControlInfo",

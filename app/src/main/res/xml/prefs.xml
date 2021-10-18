@@ -9,7 +9,7 @@
         app:iconSpaceReserved="false">
         <SwitchPreference
             android:defaultValue="true"
-            android:key="removeThemeAd"
+            android:key="removeThemeAd2"
             android:summary="@string/removeThemeAd_summary"
             android:title="@string/removeThemeAd"
             app:iconSpaceReserved="false" />

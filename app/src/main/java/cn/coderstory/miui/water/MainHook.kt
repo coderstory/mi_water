@@ -38,11 +38,11 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     object : XC_MethodHook() {
                         override fun afterHookedMethod(param: MethodHookParam) {
                             var obj = param.thisObject;
-                            XposedHelpers.setBooleanField(obj, "isSecurityNotAllowed", false);
                             XposedHelpers.setBooleanField(obj, "showAdsBefore", false);
                             XposedHelpers.setBooleanField(obj, "showAdsAfter", false);
+                            XposedHelpers.setBooleanField(obj, "singletonAuthShowAdsBefore", false);
+                            XposedHelpers.setBooleanField(obj, "singletonAuthShowAdsAfter", true);
                             XposedHelpers.setBooleanField(obj, "useSystemAppRules", true);
-                            XposedHelpers.setBooleanField(obj, "storeListed", true);
                         }
                     })
             }
@@ -77,7 +77,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
 
                 // return (arg2.flags & 1) > 0 || arg2.uid < 10000;
                 findAndHookMethod(
-                    "com.android.packageinstaller.ya",
+                    "com.android.packageinstaller.d",
                     lpparam.classLoader,
                     "a", ApplicationInfo::class.java,
                     object : XC_MethodHook() {

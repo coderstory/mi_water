@@ -1,9 +1,12 @@
 package cn.coderstory.miui.water
 
 import android.content.pm.ApplicationInfo
+import android.util.JsonWriter
 import android.widget.TextView
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import org.json.JSONObject
+import org.json.JSONStringer
 import java.net.URL
 
 
@@ -94,6 +97,18 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                 lpparam.classLoader,
                 "a",
                 XC_MethodReplacement.returnConstant(null)
+            )
+            // coord: (0,35,33) | addr: Lcom/miui/smsextra/http/HttpRequest$Builder;->request()Lcom/miui/smsextra/http/RequestResult; | loc: ?
+            hookAllMethods(
+                "com.miui.smsextra.http.HttpRequest\$Builder",
+                lpparam.classLoader,
+                "request",
+                object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        var result = param.result
+                        XposedBridge.log(JSONStringer().value(result).toString());
+                    }
+                }
             )
         }
 

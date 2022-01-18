@@ -88,6 +88,14 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
             }
         }
 
+        if (lpparam.packageName.equals("com.android.mms")) {
+            hookAllMethods(
+                "e.g.c.a.n.d.c",
+                lpparam.classLoader,
+                "a",
+                XC_MethodReplacement.returnConstant(null)
+            )
+        }
 
         if (lpparam.packageName.equals("com.miui.systemAdSolution")) {
             if (prefs.getBoolean("removeSplashAd2", false)) {

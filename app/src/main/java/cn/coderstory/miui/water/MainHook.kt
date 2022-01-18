@@ -3,6 +3,7 @@ package cn.coderstory.miui.water
 import android.content.pm.ApplicationInfo
 import android.util.JsonWriter
 import android.widget.TextView
+import com.google.gson.Gson
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import org.json.JSONObject
@@ -93,20 +94,15 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
 
         if (lpparam.packageName.equals("com.android.mms")) {
             hookAllMethods(
-                "e.g.c.a.n.d.c",
+                "com.miui.smsextra.http.RequestResult",
                 lpparam.classLoader,
-                "a",
-                XC_MethodReplacement.returnConstant(null)
-            )
-            // coord: (0,35,33) | addr: Lcom/miui/smsextra/http/HttpRequest$Builder;->request()Lcom/miui/smsextra/http/RequestResult; | loc: ?
-            hookAllMethods(
-                "com.miui.smsextra.http.HttpRequest\$Builder",
-                lpparam.classLoader,
-                "request",
+                "data",
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
                         var result = param.result
-                        XposedBridge.log(JSONStringer().value(result).toString());
+                        if(result.toString().contains("modules")){
+                            param.result = "{}";
+                        }
                     }
                 }
             )

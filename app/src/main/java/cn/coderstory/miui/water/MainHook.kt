@@ -85,6 +85,18 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                             param.result = true
                         }
                     })
+                 // coord: (0,35,33) | addr: Lcom/miui/smsextra/http/HttpRequest$Builder;->request()Lcom/miui/smsextra/http/RequestResult; | loc: ?
+            hookAllMethods(
+                "com.miui.smsextra.http.HttpRequest\$Builder",
+                lpparam.classLoader,
+                "request",
+                object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        var result = param.result
+                        XposedBridge.log(JSONStringer().value(result).toString());
+                    }
+                }
+               )
             }
         }
 

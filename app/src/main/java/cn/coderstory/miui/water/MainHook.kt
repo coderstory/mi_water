@@ -93,19 +93,33 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
         }
 
         if (lpparam.packageName.equals("com.android.mms")) {
-            hookAllMethods(
-                "com.miui.smsextra.http.RequestResult",
-                lpparam.classLoader,
-                "data",
-                object : XC_MethodHook() {
-                    override fun afterHookedMethod(param: MethodHookParam) {
-                        var result = param.result
-                        if(result.toString().contains("modules")){
-                            param.result = "{}";
+            if (prefs.getBoolean("removeMmsAd", true)) {
+                hookAllMethods(
+                    "com.miui.smsextra.http.RequestResult",
+                    lpparam.classLoader,
+                    "data",
+                    object : XC_MethodHook() {
+                        override fun afterHookedMethod(param: MethodHookParam) {
+                            var result = param.result
+                            if (result.toString().contains("modules")) {
+                                param.result = "{}";
+                            }
                         }
                     }
-                }
-            )
+                )
+                hookAllMethods(
+                    "com.miui.smsextra.ui.UnderstandButton",
+                    lpparam.classLoader,
+                    "requestAD",
+                    XC_MethodReplacement.returnConstant(null)
+                )
+                hookAllMethods(
+                    "com.miui.smsextra.ui.UnderstandButton",
+                    lpparam.classLoader,
+                    "requestAD",
+                    XC_MethodReplacement.returnConstant(null)
+                )
+            }
         }
 
         if (lpparam.packageName.equals("com.miui.systemAdSolution")) {

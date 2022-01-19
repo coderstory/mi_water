@@ -7,5 +7,6 @@
         <item>com.miui.analytics</item>
         <item>com.android.traceur</item>
         <item>com.miui.systemAdSolution</item>
+        <item>com.android.mms</item>
     </string-array>
 </resources>

@@ -43,6 +43,12 @@
             android:summary="@string/disableWaiting_summary"
             android:title="@string/disableWaiting"
             app:iconSpaceReserved="false" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="removeMmsAd"
+            android:summary="@string/removeMmsAd_summary"
+            android:title="@string/removeMmsAd"
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 

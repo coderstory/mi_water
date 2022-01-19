@@ -14,6 +14,8 @@
     <string name="removeSplashAd2_summary">remove splash ad with miui app (need root permission)</string>
     <string name="disableWaiting">remove limit for enable some futures in miui</string>
     <string name="disableWaiting_summary">Removed the restriction of having to wait 10 seconds before the function can be turned on</string>
+    <string name="removeMmsAd">remove ad with mms</string>
+    <string name="removeMmsAd_summary">It seems ads will no longer appear with English language</string>
     <string name="link"><b>Contact information</b></string>
     <string name="blog">Connect</string>
     <string name="weibo">QQ Group</string>

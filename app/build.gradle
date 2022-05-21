@@ -14,14 +14,15 @@ android {
         versionCode 12
         versionName "1.7.3"
     }
-
-    lintOptions {
-        abortOnError false
-    }
-
     packagingOptions {
-        exclude 'META-INF/**'
+        jniLibs {
+            excludes += ['META-INF/**']
+        }
+        resources {
+            excludes += ['META-INF/**']
+        }
     }
+
 
     buildTypes {
         release {
@@ -40,11 +41,15 @@ android {
     buildFeatures {
         viewBinding true
     }
+    lint {
+        abortOnError false
+    }
+    namespace 'cn.coderstory.miui.water'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
     compileOnly 'de.robv.android.xposed:api:82'
     implementation "com.github.topjohnwu.libsu:core:3.1.2"
 }

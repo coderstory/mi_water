@@ -11,8 +11,8 @@ android {
         applicationId "cn.coderstory.miui.water"
         minSdkVersion 29
         targetSdkVersion 32
-        versionCode 12
-        versionName "1.7.3"
+        versionCode 13
+        versionName "1.7.4"
     }
     packagingOptions {
         jniLibs {

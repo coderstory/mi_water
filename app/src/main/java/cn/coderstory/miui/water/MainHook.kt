@@ -120,13 +120,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     "com.miui.smsextra.ui.UnderstandButton",
                     lpparam.classLoader,
                     "requestAD",
-                    XC_MethodReplacement.returnConstant(null)
-                )
-                hookAllMethods(
-                    "com.miui.smsextra.ui.UnderstandButton",
-                    lpparam.classLoader,
-                    "requestAD",
-                    XC_MethodReplacement.returnConstant(null)
+                    XC_MethodReplacement.returnConstant(false)
                 )
             }
         }

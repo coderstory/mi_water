@@ -38,6 +38,7 @@ class SettingsActivity : FragmentActivity() {
             setPreferencesFromResource(R.xml.prefs, rootKey)
         }
 
+        @Deprecated("Deprecated in Java")
         override fun onActivityCreated(savedInstanceState: Bundle?) {
             val findPreference = findPreference<SwitchPreference>("removeSplashAd2")
             findPreference?.setOnPreferenceChangeListener { _, newValue ->

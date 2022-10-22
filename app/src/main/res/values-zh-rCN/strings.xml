@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">淘米水</string>
     <string name="module_description">MIUI广告救星</string>
-    <string name="corepatch">本插件兼容MIUI 12.5\n请安装最新版本的 LSPosed 框架</string>
+    <string name="corepatch">本插件兼容MIUI 13</string>
     <string name="removeInstallerAd">安装包管理器</string>
     <string name="removeInstallerAuth">禁用账户验证</string>
     <string name="removeInstallerAuth_summary">安装非商店应用时，不再需要输入MIUI账户密码.</string>

@@ -4,7 +4,6 @@ import android.content.pm.ApplicationInfo
 import android.widget.TextView
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import org.json.JSONStringer
 import java.net.URL
 
 
@@ -27,9 +26,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     XC_MethodReplacement.returnConstant(null)
                 )
             }
-
         }
-
 
         if (lpparam.packageName.equals("com.miui.packageinstaller")) {
             if (prefs.getBoolean("removeInstallerAd", true)) {
@@ -78,7 +75,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
 
                 // return (arg2.flags & 1) > 0 || arg2.uid < 10000;
                 findAndHookMethod(
-                    "com.android.packageinstaller.d",
+                    "com.android.packageinstaller.e",
                     lpparam.classLoader,
                     "a", ApplicationInfo::class.java,
                     object : XC_MethodHook() {
@@ -86,18 +83,6 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                             param.result = true
                         }
                     })
-                 // coord: (0,35,33) | addr: Lcom/miui/smsextra/http/HttpRequest$Builder;->request()Lcom/miui/smsextra/http/RequestResult; | loc: ?
-            hookAllMethods(
-                "com.miui.smsextra.http.HttpRequest\$Builder",
-                lpparam.classLoader,
-                "request",
-                object : XC_MethodHook() {
-                    override fun afterHookedMethod(param: MethodHookParam) {
-                        var result = param.result
-                        XposedBridge.log(JSONStringer().value(result).toString());
-                    }
-                }
-               )
             }
         }
 

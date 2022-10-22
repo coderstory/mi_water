@@ -10,8 +10,8 @@
     <string name="removeInstallerAd_summary">Remove AD from Package Installer.</string>
     <string name="removeInstallerLimit">install limit</string>
     <string name="removeInstallerLimit_summary">remove some limits on install apk</string>
-    <string name="removeSplashAd2">remove splash AD</string>
-    <string name="removeSplashAd2_summary">remove splash ad with miui app (need root permission)</string>
+    <string name="removeSplashAd">remove splash AD</string>
+    <string name="removeSplashAd_summary">remove splash ad with miui app (need root permission)</string>
     <string name="disableWaiting">remove limit for enable some futures in miui</string>
     <string name="disableWaiting_summary">Removed the restriction of having to wait 10 seconds before the function can be turned on</string>
     <string name="removeMmsAd">remove ad with mms</string>

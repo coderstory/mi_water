@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "cn.coderstory.miui.water"
         minSdkVersion 29
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 13
         versionName "1.7.4"
     }

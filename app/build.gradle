@@ -12,7 +12,7 @@ android {
         minSdkVersion 29
         targetSdkVersion 33
         versionCode 14
-        versionName "1.7.5 测试版"
+        versionName "1.7.5"
     }
     packagingOptions {
         jniLibs {

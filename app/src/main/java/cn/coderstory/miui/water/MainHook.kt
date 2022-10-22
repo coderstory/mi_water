@@ -159,5 +159,16 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     })
             }
         }
+
+
+        // Global
+        if (findClassWithOutLog("com.xiaomi.ad.server.AdLauncher", lpparam.classLoader) != null) {
+            findAndHookMethod(
+                "com.xiaomi.ad.server.AdLauncher",
+                lpparam.classLoader,
+                "initCrashMonitor",
+                XC_MethodReplacement.returnConstant(false)
+            )
+        }
     }
 }

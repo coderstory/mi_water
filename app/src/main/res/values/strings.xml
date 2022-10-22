@@ -16,9 +16,6 @@
     <string name="disableWaiting_summary">Removed the restriction of having to wait 10 seconds before the function can be turned on</string>
     <string name="removeMmsAd">remove ad with mms</string>
     <string name="removeMmsAd_summary">It seems ads will no longer appear with English language</string>
-    <string name="link"><b>Contact information</b></string>
-    <string name="blog">Connect</string>
-    <string name="weibo">QQ Group</string>
     <string name="weibo_link" translatable="false">260345842</string>
     <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>
     <string name="settings">Settings</string>

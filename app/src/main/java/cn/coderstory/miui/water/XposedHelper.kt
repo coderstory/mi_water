@@ -1,23 +1,10 @@
 package cn.coderstory.miui.water
 
-import androidx.viewbinding.BuildConfig
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 
 open class XposedHelper {
-    fun hookAllMethods(
-        packageManagerServiceUtils: Class<*>?,
-        verifySignatures: String?,
-        methodHook: XC_MethodHook?
-    ) {
-        try {
-            XposedBridge.hookAllMethods(packageManagerServiceUtils, verifySignatures, methodHook)
-        } catch (e: Throwable) {
-             XposedBridge.log(e)
-        }
-    }
-
     companion object {
         fun findAndHookMethod(
             p1: String?,
@@ -48,7 +35,7 @@ open class XposedHelper {
             }
         }
 
-        public fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
+        private fun findClass(className: String?, classLoader: ClassLoader?): Class<*>? {
             try {
                 return XposedHelpers.findClass(className,classLoader)
             } catch (e: Throwable) {
@@ -79,7 +66,7 @@ open class XposedHelper {
         }
         fun findClassWithOutLog(className: String?, classLoader: ClassLoader?): Class<*>? {
             try {
-                return Class.forName(className, false, classLoader)
+                return className?.let { Class.forName(it, false, classLoader) }
             } catch (e: Exception) {
                 // 忽略
             }

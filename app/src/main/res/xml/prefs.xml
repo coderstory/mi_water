@@ -33,9 +33,9 @@
             app:iconSpaceReserved="false" />
         <SwitchPreference
             android:defaultValue="false"
-            android:key="removeSplashAd2"
-            android:summary="@string/removeSplashAd2_summary"
-            android:title="@string/removeSplashAd2"
+            android:key="removeSplashAd"
+            android:summary="@string/removeSplashAd_summary"
+            android:title="@string/removeSplashAd"
             app:iconSpaceReserved="false" />
         <SwitchPreference
             android:defaultValue="true"
@@ -52,22 +52,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/link"
-        app:iconSpaceReserved="false">
-        <Preference
-            android:summary="@string/blog_link"
-            android:title="@string/blog"
-            app:iconSpaceReserved="false">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/blog_link" />
-        </Preference>
-        <Preference
-            android:summary="@string/weibo_link"
-            android:title="@string/weibo"
-            app:iconSpaceReserved="false">
-        </Preference>
-
-    </PreferenceCategory>
 </PreferenceScreen>

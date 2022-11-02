@@ -1,24 +1,21 @@
 <resources>
     <string name="app_name">Mi Water</string>
-    <string name="module_description">Android 10–11 core patch</string>
-    <string name="corepatch">This version is for miui 12.5 only.\nPlease use the latest version of the LSPosed.</string>
+    <string name="module_description">LSPosed Module For MIUI</string>
+    <string name="corepatch">This version is for miui 13 only.</string>
     <string name="removeThemeAd">MIUI Theme</string>
-    <string name="removeThemeAd_summary">Remove Ad from Theme.</string>
+    <string name="removeThemeAd_summary">Remove AD from Theme.</string>
     <string name="removeInstallerAuth">disable verify account</string>
-    <string name="removeInstallerAuth_summary">disable verify account when install app which not exist on miui app store.</string>
+    <string name="removeInstallerAuth_summary">disable verify account when install app which not exist on the official store.</string>
     <string name="removeInstallerAd">Package Installer</string>
-    <string name="removeInstallerAd_summary">Remove Ad from Package Installer.</string>
+    <string name="removeInstallerAd_summary">Remove AD from Package Installer.</string>
     <string name="removeInstallerLimit">install limit</string>
     <string name="removeInstallerLimit_summary">remove some limits on install apk</string>
-    <string name="removeSplashAd2">remove splash ad</string>
-    <string name="removeSplashAd2_summary">remove splash ad with miui app (need root permission)</string>
+    <string name="removeSplashAd">remove splash AD</string>
+    <string name="removeSplashAd_summary">remove splash ad with miui app (need root permission)</string>
     <string name="disableWaiting">remove limit for enable some futures in miui</string>
     <string name="disableWaiting_summary">Removed the restriction of having to wait 10 seconds before the function can be turned on</string>
     <string name="removeMmsAd">remove ad with mms</string>
     <string name="removeMmsAd_summary">It seems ads will no longer appear with English language</string>
-    <string name="link"><b>Contact information</b></string>
-    <string name="blog">Connect</string>
-    <string name="weibo">QQ Group</string>
     <string name="weibo_link" translatable="false">260345842</string>
     <string name="blog_link" translatable="false">https://blog.coderstory.cn</string>
     <string name="settings">Settings</string>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">淘米水</string>
     <string name="module_description">MIUI广告救星</string>
-    <string name="corepatch">本插件兼容MIUI 12.5\n请安装最新版本的 LSPosed 框架</string>
+    <string name="corepatch">本插件兼容MIUI 13\n基于红米K40 MIUI 13.0.7版本适配\nPower By CoderStory</string>
     <string name="removeInstallerAd">安装包管理器</string>
     <string name="removeInstallerAuth">禁用账户验证</string>
     <string name="removeInstallerAuth_summary">安装非商店应用时，不再需要输入MIUI账户密码.</string>
@@ -10,15 +10,12 @@
     <string name="removeThemeAd_summary">清除主题美化App中的广告</string>
     <string name="removeInstallerLimit">安装限制</string>
     <string name="removeInstallerLimit_summary">移除一些应用安装限制，比如系统app无法直接安装，被标记为危险的应用无法安装等</string>
-    <string name="removeSplashAd2">开屏广告</string>
-    <string name="removeSplashAd2_summary">去除系统App上的开屏广告, 需root权限</string>
+    <string name="removeSplashAd">开屏广告</string>
+    <string name="removeSplashAd_summary">去除系统App上的开屏广告, 需root权限</string>
     <string name="disableWaiting">去除5s/10s限制</string>
     <string name="disableWaiting_summary">去掉开启无障碍等功能必须等待10秒的危险提示</string>
     <string name="removeMmsAd">短信去广告</string>
     <string name="removeMmsAd_summary">去掉短信下方输入框位置的广告按钮和短信内容下方的推广按钮</string>
-    <string name="link">联系方式</string>
-    <string name="blog">博客主页</string>
-    <string name="weibo">QQ 群</string>
     <string name="settings">设置</string>
     <string name="ignore">忽略</string>
     <string name="not_supported">您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。</string>

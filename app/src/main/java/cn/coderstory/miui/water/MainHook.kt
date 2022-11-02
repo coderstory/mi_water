@@ -31,7 +31,7 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
         if (lpparam.packageName.equals("com.miui.packageinstaller")) {
             if (prefs.getBoolean("removeInstallerAd", true)) {
                 XposedHelpers.findAndHookConstructor(
-                    "com.miui.packageInstaller.model.MarketControlRules",
+                    "com.miui.packageInstaller.model.CloudParams",
                     lpparam.classLoader,
                     object : XC_MethodHook() {
                         override fun afterHookedMethod(param: MethodHookParam) {
@@ -41,6 +41,9 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                             XposedHelpers.setBooleanField(obj, "singletonAuthShowAdsBefore", false);
                             XposedHelpers.setBooleanField(obj, "singletonAuthShowAdsAfter", true);
                             XposedHelpers.setBooleanField(obj, "useSystemAppRules", true);
+                            XposedHelpers.setBooleanField(obj, "showSafeModeTip", false);
+                            XposedHelpers.setBooleanField(obj, "openButton", true);
+                            XposedHelpers.setObjectField(obj, "safeType", "1");
                         }
                     })
             }
@@ -81,6 +84,19 @@ class MainHook : XposedHelper(), IXposedHookLoadPackage {
                     object : XC_MethodHook() {
                         override fun beforeHookedMethod(param: MethodHookParam) {
                             param.result = true
+                        }
+                    })
+
+                // 隐藏开启纯净模式提示
+                 findAndHookMethod(
+                    "com.miui.packageInstaller.ui.listcomponets.f0",
+                     lpparam.classLoader,
+                    "a",
+                    object : XC_MethodHook() {
+                        @Throws(Throwable::class)
+                        override fun afterHookedMethod(param: MethodHookParam) {
+                            super.afterHookedMethod(param)
+                            XposedHelpers.setBooleanField(param.thisObject, "l", false);
                         }
                     })
             }
